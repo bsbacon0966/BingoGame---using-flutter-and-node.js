@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 import 'package:socket_io_common/src/util/event_emitter.dart';
+
 class HostPage extends StatefulWidget {
   final String username;
   HostPage({Key? key, required this.username}) : super(key: key);
