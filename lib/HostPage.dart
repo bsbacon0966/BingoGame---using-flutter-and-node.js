@@ -13,7 +13,7 @@ class HostPage extends StatefulWidget {
 class _HostPageState extends State<HostPage> {
   late IO.Socket socket;
   String identify = " ";
-  String countFromServer = "0";
+  String player_connect_number = "0";
   String gameState = 'There is 0 player ready!';
   String end_message = ' ';
   bool isButtonVisible = false;
@@ -242,13 +242,13 @@ class _HostPageState extends State<HostPage> {
     socket.on('countUpdate', (data) {
       print('Count update from server: $data');
       setState(() {
-        countFromServer = data.toString();
-        if (countFromServer == "0" || countFromServer == "1") {
-          gameState = 'There is $countFromServer player ready up!';
+        player_connect_number = data.toString();
+        if (player_connect_number == "0" || player_connect_number == "1") {
+          gameState = 'There is $player_connect_number player ready up!';
         } else {
-          gameState = 'There are $countFromServer players ready up!';
+          gameState = 'There are $player_connect_number players ready up!';
         }
-        if (countFromServer == "1") {
+        if (player_connect_number == "1") {
           isButtonVisible = true;
         }
       });
